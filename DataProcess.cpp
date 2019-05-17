@@ -1,5 +1,5 @@
-#ifndef __DATAPROCESS_HPP__
-#define __DATAPROCESS_HPP__
+#ifndef __DATAPROCESS_CPP__
+#define __DATAPROCESS_CPP__
 
 #include<iostream>
 #include<cmath>
@@ -18,6 +18,7 @@ double B0_Confirm(void)
                 {
                         cout<<"\tGive the correction coefficent: B0 = ";
 			cin>>Correction_B0;
+			cout<<endl;
                 }
                 else if(choice=='N')
                 {
@@ -45,7 +46,8 @@ void Rou_Cal(void)
 	{
 		for(int j=0;j<5;j++)
 		{
-			Resistivity[i][j]=(2*PI*ProbeSpacing_s/Correction_B0)*(abs(Voltages[i][j])/TestCurrent);
+			Resistivity[i][j]=(2*PI*ProbeSpacing_s/Correction_B0)*(Voltages[i][j]/TestCurrent);
+			Resistivity[i][j]=fabs(Resistivity[i][j]);
 			Rou_Sum+=Resistivity[i][j];
 		}
 	}
@@ -54,7 +56,8 @@ void Rou_Cal(void)
 	{
 		for(int j=0;j<5;j++)
 		{
-			Resistivity[i][j]=(2*PI*ProbeSpacing_s/Correction_B0)*(abs(Voltages[i][j])/(TestCurrent));
+			Resistivity[i][j]=(2*PI*ProbeSpacing_s/Correction_B0)*(Voltages[i][j]/(TestCurrent));
+			Resistivity[i][j]=fabs(Resistivity[i][j]);
 			Rou_Sum+=Resistivity[i][j];
 		}
 	}

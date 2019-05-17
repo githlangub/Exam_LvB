@@ -30,7 +30,7 @@ void Data_Input(void)
 
 	/****** ******/
 	cout<<"===== Parameters Set ====="<<"\n"<<endl;
-	if(CalMode==Auto)
+	if(CalMode==Manual)
 	{
 		cout<<"Set the test current(mA): I = ";
 		cin>>TestCurrent;
@@ -97,7 +97,7 @@ void Results_Output(void)
 	/****** ******/
 	cout<<"===== Exam Environment ====="<<"\n"<<endl;
 	cout<<"\tCorrection Coefficent: B0 = "<<Correction_B0<<endl;
-	cout<<"\tProbe Spacing: s = "<<ProbeSpacing_s<<endl;
+	cout<<"\tProbe Spacing: s = "<<ProbeSpacing_s*10<<" mm"<<endl;
 	cout<<endl;
 
 	/****** ******/
