@@ -1,4 +1,3 @@
-#include"Exam_LvB.hpp"
 #include"IO.cpp"
 #include"DataProcess.cpp"
 
@@ -8,6 +7,7 @@ int main()
 	B0_Confirm();
 	Rou_Cal();
 	c_Cal();
+	E_Cal();
 	Results_Output();
 	return 0;
 }

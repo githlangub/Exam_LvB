@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<cmath>
-#include"Exam_LvB.hpp"
+#include"Resistivity.hpp"
 
 double B0_Confirm(void)
 {
@@ -71,6 +71,49 @@ void c_Cal(void)
 {
 	Mobility_u=(DopingType==N)?1350.00:500.00;
 	Concentration_c=1/(Rou_*ElementaryCharge_q*Mobility_u);
+}
+
+
+
+void E_Cal(void)
+{
+	double Rou_max,Rou_min;
+
+	/****** ******/
+	Rou_max=Rou_min=Resistivity[0][0];
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			if(Resistivity[i][j]>Rou_max)
+			{
+				Rou_max=Resistivity[i][j];
+			}
+			else if(Resistivity[i][j]<Rou_min)
+			{
+				Rou_min=Resistivity[i][j];
+			}
+		}
+	}
+	Nonuniformity_E_F=(Rou_max-Rou_min)/(0.5*(Rou_max+Rou_min));
+
+	/****** ******/
+	Rou_max=Rou_min=Resistivity[2][0];
+	for(int i=2;i<4;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			if(Resistivity[i][j]>Rou_max)
+			{
+				Rou_max=Resistivity[i][j];
+			}
+			else if(Resistivity[i][j]<Rou_min)
+			{
+				Rou_min=Resistivity[i][j];
+			}
+		}
+	}
+	Nonuniformity_E_B=(Rou_max-Rou_min)/(0.5*(Rou_max+Rou_min));
 }
 
 #endif

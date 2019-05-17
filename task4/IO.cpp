@@ -2,7 +2,7 @@
 #define __IO_CPP__
 
 #include<iostream>
-#include"Exam_LvB.hpp"
+#include"Resistivity.hpp"
 
 void Data_Input(void)
 {
@@ -115,6 +115,7 @@ void Results_Output(void)
 		cout<<endl;
 	}
 	cout<<"The average of the front resistivity is "<<Rou_F<<" Omi*cm"<<"\n"<<endl;
+	cout<<"The Non-Uniformity of the front resistivity is "<<Nonuniformity_E_F*100<<"%"<<"\n"<<endl;
 
 	/****** ******/
 	cout<<"===== Back Resistivity ====="<<"\n"<<endl;
@@ -131,10 +132,11 @@ void Results_Output(void)
 		cout<<endl;
 	}
 	cout<<"The average of the back resistivity is "<<Rou_B<<" Omi*cm"<<"\n"<<endl;
+	cout<<"The Non-Uniformity of the back resistivity is "<<Nonuniformity_E_B*100<<"%"<<"\n"<<endl;
 
 	/****** ******/
 	cout<<"===== Sample Properties ====="<<"\n"<<endl;
-	cout<<"\tIt's a/an ";
+	cout<<"\tIt's an ";
 	switch(DopingType)
 	{
 		case N: cout<<"n-type";break;
